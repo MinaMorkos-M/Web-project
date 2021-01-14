@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="ValidateSignIn" method="post">
+        <div>
+             <h1> Sign In</h1>
+             <label>UserName</label> <br> 
+             <input type="email" name="username" required> <br> 
+             <label> Password </label> <br>
+             <input type="password" name="password" required> <br>
+             <label>Remember Me</label> <input type="checkbox" class="checkbox"> <br>
+             <a href="index.html"> Sign Up?</a> <br>
+             <button class="signin">SIGN IN</button>
+      
+            
+            
+        </div>
+        
+        </form>
+        
+        <style>
+            div{
+                               background-color: #11484D;
+
+                    box-shadow: 2px 2px 20px 2px black ;
+                    padding: 0px 0px 100px 30px ;
+            }
+            h2{
+                 color:red;
+                font-size: 50px;
+               margin : -170px 0 0 160px  ;
+            }
+            h1{
+                color:#87701B;
+                font-size: 50px;
+                padding : 40px 0 0 190px  ;
+            }
+            body{
+                background-color:  #246B71 ;
+                margin: 170px 640px ;
+               
+            }
+               input {
+                background-color: #226B71;
+                padding: 15px 0px 15px 160px;
+                min-width: 380px;
+                margin: 25px 10px ;
+                border: 1px solid #11484D    ;
+                border-radius: 5px;
+            }
+               label{
+                opacity: 0.8;
+                margin-left: 20px;
+                font-weight: bold;
+                font-size: 20px;
+                color:#F1FFFF;
+            }
+            .signin{
+                margin-top: 60px;
+                padding: 10px 250px;
+                background-color: #E99406;
+                color: #F1FFFF;
+                border: 1px solid #E99406 ; 
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 18px;
+                text-align: center;
+                
+            }
+            a{
+               text-decoration: none ;
+               margin-left: 230px;
+               margin-top: 20px;
+               position: absolute;
+               color: #87701B;
+               font-weight: bold;
+               font-size: 20px;
+
+            }
+            .checkbox{
+                min-width: 0px;
+            }
+          
+        </style>
+    </body>
+</html>

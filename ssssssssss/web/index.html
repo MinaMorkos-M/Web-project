@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="all">
+        <h1>
+            Registeration Form
+        </h1>
+        <form action="Validate" method="post" onsubmit="return validation()">
+            <table>
+                
+                <tr>
+                    
+                    <td> <label>First Name</label> </td> <td><input required type="text" placeholder="First Name"onkeydown="return alphaOnly(event);" name="fname"></td>
+ 
+                </tr>
+                <tr>
+                    <td> <label> Last Name</label></td> <td><input required type="text" placeholder="Last Name"onkeydown="return alphaOnly(event);" name="lname"></td>
+
+                </tr>
+                <tr>
+                    <td><label >UserName</label></td> <td><input type="email" required placeholder="eg@gmail.com" name="email" id="email"></td> <td> <span id="text" style="color: red; font-weight: bold"></span> </td>
+</td> 
+                </tr>
+                <tr>
+                    <td><label>Age</label> </td>  <td><input type="number" required placeholder="Your Age" min="18" max="80" class="number" name="age"> </td>
+
+                </tr> 
+                <tr>
+                    <td><label>Phone Number</label></td><td> <input type="Text" required placeholder="+20" name="phone" id="phone" minlength="11" maxlength="11" onkeydown="
+    // to write only numbers                     
+    return ( event.ctrlKey || event.altKey 
+                    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false)  
+                    || (95<event.keyCode && event.keyCode<106)
+                    || (event.keyCode==8) || (event.keyCode==9) 
+                    || (event.keyCode>34 && event.keyCode<40) 
+                    || (event.keyCode==46) )" </td>
+              
+                </tr>
+                <tr>
+                    <td> <label> Male </label>  <input type="radio" name="gender" class="gender" value="M" required>
+                     <label> Female </label>  <input type="radio" name="gender" class="genderx" value="F"></td> 
+                    
+                     <td> <label> Student </label>  <input type="radio" name="role" class="gender" value="student" required>
+                     <label> Staff  </label>  <input type="radio" name="role" class="gender" value="staff"></td>
+
+                </tr>
+
+                
+            </table>
+                  <div class="contain">
+                      <label> reCaptcha: </label><input type="text" id="capt" readonly style=" color: #E99406 ; font-weight: bold ; text-align: center ; font-size: 15px ; letter-spacing: 1px; " >
+		<div 
+                    id="refresh"> <i class="fa fa-refresh fa-spin" style="font-size:30px ; color: #E99406 ; " onclick="refreshCaptcha()" ></i>
+
+                </div> <br>
+
+                <input type="text" id="textinput" placeholder="enter the Captcha.." style=" margin-left: 120px  ">
+	</div>
+            <div class="line"></div>
+            <button type="submit" class="submit"> SUBMIT </button>
+
+              </form>
+            </div>
+        <a href="SignIn.html"> here</a>
+                
+          
+        <script type="text/javascript">
+            
+              (  function setFirstCaptchaValue() 
+                {
+                    var alpha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V'
+			           ,'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i',
+			           'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+			var a=alpha[Math.floor(Math.random()*62)];
+			var b=alpha[Math.floor(Math.random()*62)];
+			var c=alpha[Math.floor(Math.random()*62)];
+			var d=alpha[Math.floor(Math.random()*62)];
+			var e=alpha[Math.floor(Math.random()*62)];
+			var f=alpha[Math.floor(Math.random()*62)];
+
+			var sum=a + b + c + d + e + f;
+
+			document.getElementById("capt").value=sum;
+                } () ) ;
+		function refreshCaptcha() {
+
+			var alpha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V'
+			           ,'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i',
+			           'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+			var a=alpha[Math.floor(Math.random()*62)];
+			var b=alpha[Math.floor(Math.random()*62)];
+			var c=alpha[Math.floor(Math.random()*62)];
+			var d=alpha[Math.floor(Math.random()*62)];
+			var e=alpha[Math.floor(Math.random()*62)];
+			var f=alpha[Math.floor(Math.random()*62)];
+
+			var sum=a + b + c + d + e + f;
+
+			document.getElementById("capt").value=sum;
+		}
+
+             function validation() {
+                var email = document.getElementById("email").value;
+                var text = document.getElementById("text");
+                var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (email.match(pattern))
+                {
+                }
+                else 
+                {
+                    text.innerHTML = "You Email Addres in Valid " ; 
+
+                    return false ;
+                }
+                
+			var givenValue = document.getElementById('capt').value;
+			var enteredValue = document.getElementById('textinput').value;
+			if (givenValue == enteredValue){
+                                   return true ; 			
+                               }
+                        else {
+                            	alert("captcha isn't correct");
+                                   return false ; 
+                        }
+			
+		}
+                
+                $( document ).ready(function() {
+    $('input').change(function() {
+      var n = $('input').val();
+      if (n < 3)
+        $('input').val(3);
+      if (n > 7)
+        $('input').val(7);
+    });
+});
+function alphaOnly(event) {
+  var key = event.keyCode;
+  return ((key >= 65 && key <= 90) || key == 8);
+};
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+	</script>
+        <style>
+            body{
+                background-color: #246B71;
+                width: 40%;
+                margin: 20px auto ;
+            }
+            .all{
+                    box-shadow: 2px 2px 20px 2px black ;
+                    background-color: #11484D;
+                    padding: 30px 90px 30px 120px ;
+                    
+                   
+            }
+            h1{
+                text-align: center;
+                color:#87701B;
+                font-size: 65px;
+                margin-bottom: 50px;
+                
+            }
+            input {
+                padding: 12px 50px;
+                margin: 15px 20px ;
+                border: 1px solid white ;
+                border-radius: 5px;
+            }
+            label{
+                font-weight: bold;
+                font-size: 35px;
+                color:#DFEEF1;
+            }
+            .submit{
+                 padding: 10px 250px;
+                 text-align: center;
+                border: 2px solid #E99406 ;
+                font-size: 17px;
+                color: white;
+                border-radius: 10px;
+                font-weight: bold;
+                background-color:#E99406;
+                margin-top: 20px;
+            }
+          .line
+          {
+              margin: 10px 0 ;
+              width: 100%;
+              border-bottom: 2px solid #87701B ;
+              
+              
+          }
+          #refresh{
+              display: inline-block;
+          
+              
+          }
+          .gender{
+              padding: 0  ; 
+             margin: 0;
+             margin-right: 5px;
+          }
+          .genderx{
+              padding: 0  ; 
+              margin: 0;
+              margin-right: 20px;
+          }
+          .contain{
+              width: 600px;
+          }
+        
+         
+            
+        </style>
+    </body>
+</html>
